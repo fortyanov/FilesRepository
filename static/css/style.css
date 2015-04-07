@@ -1,0 +1,44 @@
+#controls h3 p {
+        text-align: center;
+        padding: 10px 5px;
+        background-image: -webkit-linear-gradient(top,#e8e8e8 0,#f5f5f5 100%);
+        background-size:100% 100%;
+ }
+
+ul.errorlist {
+    margin: 0;
+    padding: 0;
+}
+.errorlist li {
+    color: red;
+    display:block;
+}
+
+.login{
+    top: 5%; /* Отступ в процентах от верхнего края окна */
+    left: 50%; /* Отступ в процентах от левого края окна */
+    width: 270px; /* Ширина блока */
+    height: 200px; /* Высота блока */
+    position: absolute; /* Абсолютное позиционирование блока */
+    margin-left: -100px; /* Отрицательный отступ от левого края страницы, должен равняться половине высоты блока со знаком минус */
+}
+
+.login h3 p{
+    text-align: center;
+    padding: 10px 5px;
+    background-image: -webkit-linear-gradient(top,#e8e8e8 0,#f5f5f5 100%);
+    background-size:100% 100%;
+    border-radius: 4px;
+}
+
+.bg-danger{
+    text-align: center;
+    color: #ac2925;
+    line-height: 2;
+}
+
+.bg-success{
+    text-align: center;
+    color:#009900;
+    line-height: 2;
+}

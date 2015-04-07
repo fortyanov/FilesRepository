@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}File repository{% endblock title %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static "css/bootstrap.min.css"%}"/>
+    <link rel="stylesheet" href="{% static "css/style.css"%}"/>
+{#    <link rel="shortcat icon" href="{% static "img/favicon.png" %}"/>#}
+    <script src="{% static "js/jquery-2.1.0.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static 'js/ajax_csrf.js' %}"></script>
+    {% block source %}{% endblock source %}
+</head>
+<body>
+    <div id="content">{% block body %}{% endblock body %}</div>
+</body>
+</html>

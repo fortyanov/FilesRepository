@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %} Репозиторий {% endblock title %}
+{% block source %}{% load poll_extras %}{% load staticfiles %}{% endblock source %}
+
+{% block body %}
+<style>
+    .user {
+        font-weight: bolder;
+        color: #2a6496;
+    }
+</style>
+    <p>Вы вошли как <span class="user">{{ user.username }}</span></p>
+    <a href="/accounts/logout/">Выход</a>
+
+    {% for e in errors %}
+    <p class="bg-danger">{{ e }}</p>
+    {% endfor %}
+
+    <h2><p>Ваши файлы</p></h2>
+    <table style="width: 60%;" class="table table-striped table-bordered">
+    {% for f in files %}
+        <tr><td>{{ forloop.counter }}</td><td>{{ f.0 }}</td><td><a href="/repository/download/{{ f.1 }}/" target="_blank">Скачать</a></td><td><a href="/repository/delete/{{ f.1 }}/"><img style="width: 25px;" src="{% static "img/cross.jpg" %}" alt="delete"/></a></td></tr>
+    {% endfor %}
+    </table>
+
+    <form class="form-horizontal" id="add_files" action="/repository/addfile/" method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <div style="margin-bottom: 5px;" class="form-group">
+            <label for="id_file" class="col-sm-4 control-label">Добавить файлы: </label>
+            <div class="col-sm-8">
+                <input style="border:none; box-shadow: none;" class="form-control" id="id_file" name="file" type="file" multiple/>
+            </div>
+        </div>
+        <p class="help-block">Зажав ctrl, выберите несколько файлов и загрузите их.</p>
+
+        <input style="float: left; margin-top: 15px;" id="submit_btn" class="btn btn-primary" type="submit" name="submit_btn" value="Загрузить">
+    </form>
+
+{% endblock body %}
